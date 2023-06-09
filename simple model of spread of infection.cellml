@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<model name="spread_of_infection" xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cellml="http://www.cellml.org/cellml/1.1#">
+    <component name="main">
+        <variable initial_value="0.02" name="x" units="dimensionless"/>
+        <variable initial_value="0" name="t" units="dimensionless"/>
+        <variable initial_value="0.5" name="r" units="dimensionless"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>x</ci>
+                </apply>
+                <apply>
+                    <times/>
+                    <ci>r</ci>
+                    <ci>x</ci>
+                    <apply>
+                        <minus/>
+                        <cn cellml:units="dimensionless">1</cn>
+                        <ci>x</ci>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+    </component>
+</model>

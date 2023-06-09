@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<model name="central_dogma" xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cellml="http://www.cellml.org/cellml/1.1#">
+    <component name="main">
+        <variable initial_value="0" name="t" units="dimensionless"/>
+        <variable initial_value="0" name="M" units="dimensionless"/>
+        <variable initial_value="0" name="P" units="dimensionless"/>
+        <variable initial_value="0.2" name="k_m" units="dimensionless"/>
+        <variable initial_value="0.4" name="k_p" units="dimensionless"/>
+        <variable initial_value="0.05" name="gamma_m" units="dimensionless"/>
+        <variable initial_value="0.1" name="gamma_p" units="dimensionless"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>M</ci>
+                </apply>
+                <apply>
+                    <minus/>
+                    <ci>k_m</ci>
+                    <apply>
+                        <times/>
+                        <ci>gamma_m</ci>
+                        <ci>M</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>P</ci>
+                </apply>
+                <apply>
+                    <minus/>
+                    <apply>
+                        <times/>
+                        <ci>k_p</ci>
+                        <ci>M</ci>
+                    </apply>
+                    <apply>
+                        <times/>
+                        <ci>gamma_p</ci>
+                        <ci>P</ci>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+        <!-- values taken from youtube: https://www.youtube.com/watch?v=jVDcRqzJIJk-->
+    </component>
+</model>

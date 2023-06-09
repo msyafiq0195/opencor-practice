@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<model name="simple_reversible_reaction" xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cellml="http://www.cellml.org/cellml/1.1#">
+    <units name="per_sec">
+        <unit exponent="-1" units="second"/>
+    </units>
+    <component name="main">
+        <variable initial_value="10" name="A" units="mole"/>
+        <variable initial_value="20" name="B" units="mole"/>
+        <variable initial_value="0" name="t" units="second"/>
+        <variable initial_value="0.21" name="p" units="per_sec"/>
+        <variable initial_value="0.41" name="q" units="per_sec"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>A</ci>
+                </apply>
+                <apply>
+                    <plus/>
+                    <apply>
+                        <times/>
+                        <apply>
+                            <minus/>
+                            <ci>p</ci>
+                        </apply>
+                        <ci>A</ci>
+                    </apply>
+                    <apply>
+                        <times/>
+                        <ci>q</ci>
+                        <ci>B</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>B</ci>
+                </apply>
+                <apply>
+                    <minus/>
+                    <apply>
+                        <times/>
+                        <ci>p</ci>
+                        <ci>A</ci>
+                    </apply>
+                    <apply>
+                        <times/>
+                        <ci>q</ci>
+                        <ci>B</ci>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+    </component>
+</model>
