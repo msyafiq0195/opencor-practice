@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<model name="logistics_growth_model" xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cellml="http://www.cellml.org/cellml/1.1#">
+    <component name="main">
+        <variable initial_value="0" name="t" units="dimensionless"/>
+        <variable initial_value="1" name="X" units="dimensionless"/>
+        <variable initial_value="0.05" name="r" units="dimensionless"/>
+        <variable initial_value="100000" name="K" units="dimensionless"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>X</ci>
+                </apply>
+                <apply>
+                    <times/>
+                    <ci>r</ci>
+                    <ci>X</ci>
+                    <apply>
+                        <minus/>
+                        <cn cellml:units="dimensionless">1</cn>
+                        <apply>
+                            <divide/>
+                            <ci>X</ci>
+                            <ci>K</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+        <!-- values taken from youtube: https://www.youtube.com/watch?v=b2hptADPNyQ-->
+    </component>
+</model>
