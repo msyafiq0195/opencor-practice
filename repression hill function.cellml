@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<model name="repression_Hill_function" xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cellml="http://www.cellml.org/cellml/1.1#">
+    <component name="main">
+        <variable initial_value="0" name="t" units="dimensionless"/>
+        <variable initial_value="0" name="G_1" units="dimensionless"/>
+        <variable initial_value="0" name="G_2" units="dimensionless"/>
+        <variable initial_value="0.5" name="k_1" units="dimensionless"/>
+        <variable initial_value="0.5" name="k_2" units="dimensionless"/>
+        <variable initial_value="0.1" name="gamma_1" units="dimensionless"/>
+        <variable initial_value="0.05" name="gamma_2" units="dimensionless"/>
+        <variable initial_value="5" name="n" units="dimensionless"/>
+        <variable initial_value="5" name="c" units="dimensionless"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>G_1</ci>
+                </apply>
+                <apply>
+                    <minus/>
+                    <ci>k_1</ci>
+                    <apply>
+                        <times/>
+                        <ci>gamma_1</ci>
+                        <ci>G_1</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>G_2</ci>
+                </apply>
+                <apply>
+                    <minus/>
+                    <apply>
+                        <times/>
+                        <apply>
+                            <divide/>
+                            <apply>
+                                <power/>
+                                <ci>c</ci>
+                                <ci>n</ci>
+                            </apply>
+                            <apply>
+                                <plus/>
+                                <apply>
+                                    <power/>
+                                    <ci>c</ci>
+                                    <ci>n</ci>
+                                </apply>
+                                <apply>
+                                    <power/>
+                                    <ci>G_1</ci>
+                                    <ci>n</ci>
+                                </apply>
+                            </apply>
+                        </apply>
+                        <ci>k_2</ci>
+                    </apply>
+                    <apply>
+                        <times/>
+                        <ci>gamma_2</ci>
+                        <ci>G_2</ci>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+        <!-- values taken from youtube: https://www.youtube.com/watch?v=baqMUbKuStg-->
+    </component>
+</model>
